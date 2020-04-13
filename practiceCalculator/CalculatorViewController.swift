@@ -313,7 +313,8 @@ class CalculatorViewController: UIViewController {
     
     @objc func divisionButtonTapped(sender:UIButton) {
         calculationLabel.text = "÷"
-        if sender.tag == 11 {
+       operation = sender.tag
+
 
             if let text = calculationLabel.text, let value = Int(text), initialNumber == 0 {
             initialNumber = value
@@ -322,17 +323,13 @@ class CalculatorViewController: UIViewController {
             if let text = calculationLabel.text, let value = Int(text), currentNumber == 0 {
             currentNumber = value
             }
-//        let operation = initialNumber ÷ currentNumber
 
-//                    calculationLabel.text = "\(initialNumber)÷\(currentNumber)"
-         
-        }
     }
     
     @objc func multiplicationButtonTapped(sender:UIButton) {
         calculationLabel.text = "x"
-        if sender.tag == 12 {
-//            calculationLabel.text = "\(initialNumber)x\(currentNumber)"
+        operation = sender.tag
+
             
               if let text = calculationLabel.text, let value = Int(text), initialNumber == 0 {
               initialNumber = value
@@ -341,13 +338,13 @@ class CalculatorViewController: UIViewController {
               if let text = calculationLabel.text, let value = Int(text), currentNumber == 0 {
               currentNumber = value
               }
-        }
+        
     }
     
     @objc func subtractionButtonTapped(sender:UIButton) {
         calculationLabel.text = "-"
-        if sender.tag == 13 {
-//            calculationLabel.text = "\(initialNumber)-\(currentNumber)"
+       operation = sender.tag
+
             
             if let text = calculationLabel.text, let value = Int(text), initialNumber == 0 {
               initialNumber = value
@@ -356,13 +353,15 @@ class CalculatorViewController: UIViewController {
               if let text = calculationLabel.text, let value = Int(text), currentNumber == 0 {
               currentNumber = value
               }
-        }
+        
     }
     
     @objc func additionButtonTapped(sender:UIButton) {
         calculationLabel.text = "+"
-        if sender.tag == 14 {
-//            calculationLabel.text = "\(initialNumber)+\(currentNumber)"
+        
+           operation = sender.tag
+           
+
             
             if let text = calculationLabel.text, let value = Int(text), initialNumber == 0 {
               initialNumber = value
@@ -371,14 +370,11 @@ class CalculatorViewController: UIViewController {
               if let text = calculationLabel.text, let value = Int(text), currentNumber == 0 {
               currentNumber = value
               }
-        }
+        
     }
     
     @objc func equalButtonTapped(sender:UIButton) {
-        calculationLabel.text = "="
-        if sender.tag == 15 {
-        operation = sender.tag
-        }
+   
        
         if operation == 11 {
                     answer = initialNumber / currentNumber
@@ -399,6 +395,7 @@ class CalculatorViewController: UIViewController {
             calculationLabel.text = "\(answer)"
 
         }
+        print (answer)
     }
         
     
